@@ -12,8 +12,8 @@ $(document).ready(function () {
 	  $('.amenities h4').text(short + '...');
 	  if (values.length === 0) $('.amenities h4').html('&nbsp;');
 	});
-	const url = 'http://${HOST}:5001/api/v1/status/';
-	$.get(url, function (info) {
+	const API_URL = 'http://${HOST}:5001/api/v1/status/';
+	$.get(API_URL, function (info) {
 	  if (info.status === 'OK') {
 		$('#api_status').addClass('available');
 	  } else {
