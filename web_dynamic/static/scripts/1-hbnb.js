@@ -12,4 +12,3 @@ function init () {
     $('.amenities h4').text(names.sort().join(', '));
   });
 }
-}
