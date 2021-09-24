@@ -1,14 +1,15 @@
-$(document).ready(init);
-
-function init () {
-  const amenityObject = {};
-  $('.amenities .popover input').change(function () {
+$(document).ready(function () {
+  const listCheck = {};
+  $('li input[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
-      amenityObject[$(this).attr('data-name')] = $(this).attr('data-id');
-    } else if ($(this).is(':not(:checked)')) {
-      delete amenityObject[$(this).attr('data-name')];
+      listCheck[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete listCheck[$(this).data('id')];
     }
-    const names = Object.keys(amenityObject);
-    $('.amenities h4').text(names.sort().join(', '));
+    const values = Object.values(listCheck);
+    const list = values.join(', ');
+    const short = list.slice(0, 30);
+    $('.amenities h4').text(short + '...');
+    if (values.length === 0) $('.amenities h4').html('&nbsp;');
   });
-}
+});
