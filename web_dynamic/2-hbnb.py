@@ -19,7 +19,7 @@ def close_db(error):
     storage.close()
 
 
-@app.route('/2-hbnb', strict_slashes=False)
+@app.route('/2-hbnb/', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
     states = storage.all(State).values()
@@ -43,4 +43,4 @@ def hbnb():
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5000)
